@@ -46,9 +46,11 @@ jobs:
           echo "DATABASE_URL=postgres://your_user:your_password@localhost:5432/your_db" >> .env
 
       - name: Run migrations
+        working-directory: job_rec
         run: |
           python manage.py migrate
 
       - name: Run pipeline command
+        working-directory: job_rec
         run: |
           python manage.py run_pipeline
